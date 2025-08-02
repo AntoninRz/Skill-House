@@ -2,6 +2,7 @@ import React from 'react'
 import { assets, projectsData } from '../assets/assets'
 import { useState } from 'react'
 import { useEffect } from 'react'
+import { motion } from "motion/react"
 
 const Projects = () => {
     const [currentIndex, setCurrentIndex] = useState(0)
@@ -29,7 +30,12 @@ const Projects = () => {
     }
 
   return (
-    <div className='container overflow-hidden mx-auto py-4 px-6 md:px-20 lg:px-32 my-20 w-full' id='Projects'>
+    <motion.div 
+        initial={{opacity: 0, x:-200}}
+        transition={{duration: 1.5}}
+        whileInView={{opacity: 1, x:0}}
+        viewport={{once: true}}
+        className='container overflow-hidden mx-auto py-4 px-6 md:px-20 lg:px-32 my-20 w-full' id='Projects'>
         <h2 className='text-2xl md:text-4xl font-bold mb-2 text-center'>Projects <span className='underline underline-offset-4 decoration-1 under font-light '>Completed</span></h2>
         <p className='text-gray-500 max-w-80 mb-8 text-center mx-auto'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae?</p>
 
@@ -65,7 +71,7 @@ const Projects = () => {
             </div>
         </div>
 
-    </div>
+    </motion.div>
   )
 }
 
